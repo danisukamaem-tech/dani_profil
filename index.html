@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dani</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#050816;
+color:white;
+overflow-x:hidden;
+}
+
+/* Background */
+
+body::before{
+content:'';
+position:fixed;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle at 20% 20%,#ff003c55,transparent 25%),
+radial-gradient(circle at 80% 30%,#0077ff55,transparent 30%),
+radial-gradient(circle at 50% 90%,#ffffff11,transparent 30%);
+animation:bg 12s infinite alternate;
+z-index:-5;
+}
+
+@keyframes bg{
+to{
+transform:scale(1.2) rotate(5deg);
+}
+}
+
+/* Stars */
+
+.star{
+position:fixed;
+width:2px;
+height:2px;
+background:white;
+border-radius:50%;
+animation:blink 3s infinite;
+}
+
+@keyframes blink{
+50%{opacity:.2;}
+}
+
+/* Spider Web */
+
+.web{
+position:fixed;
+width:260px;
+opacity:.35;
+z-index:-1;
+}
+
+.left{
+top:0;
+left:0;
+}
+
+.right{
+top:0;
+right:0;
+transform:rotateY(180deg);
+}
+
+/* Hero */
+
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+text-align:center;
+padding:20px;
+}
+
+.photo{
+width:220px;
+height:220px;
+border-radius:50%;
+border:5px solid #00bfff;
+box-shadow:0 0 30px #00bfff;
+background:url("https://scontent.cdninstagram.com/v/t51.82787-19/747625793_18019259318890388_4058748763747934532_n.jpg?stp=dst-jpg_s150x150_tt6&_nc_cat=109&ccb=7-5&_nc_sid=f7ccc5&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=5ZBXDjeIdgwQ7kNvwHkd-fo&_nc_oc=Adr1YBCo5vMO_sIi6LlHkcSXDyw8Ujk9mO-P-oVGzx1BYJrZaL0CWY2Ok3Ght8DxVy0&_nc_zt=24&_nc_ht=scontent.cdninstagram.com&_nc_gid=8-0HiJOaCnfHI85hkcP-Jg&_nc_ss=7ba8c&oh=00_AQFRRcbwXx2zdIn5Mn8ToJu0EXhOxke3W9BgNvIxe6xq-g&oe=6A70AC91") center/cover;
+animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+50%{
+transform:translateY(-15px);
+}
+}
+
+h1{
+margin-top:25px;
+font-size:55px;
+text-shadow:0 0 15px cyan;
+}
+
+h2{
+font-weight:300;
+color:#ccc;
+margin-top:10px;
+}
+
+p{
+margin-top:15px;
+max-width:700px;
+line-height:1.7;
+color:#ddd;
+}
+
+/* Button */
+
+.btn{
+margin-top:30px;
+display:inline-block;
+padding:15px 35px;
+background:#0077ff;
+color:white;
+border-radius:40px;
+text-decoration:none;
+font-weight:bold;
+transition:.4s;
+}
+
+.btn:hover{
+transform:scale(1.1);
+box-shadow:0 0 20px #0077ff;
+}
+
+/* Card */
+
+.section{
+padding:100px 8%;
+}
+
+.title{
+font-size:40px;
+margin-bottom:40px;
+text-align:center;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(10px);
+padding:25px;
+border-radius:20px;
+transition:.5s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 25px cyan;
+}
+
+/* Skill */
+
+.skill{
+margin-top:20px;
+}
+
+.bar{
+height:10px;
+background:#333;
+border-radius:20px;
+overflow:hidden;
+}
+
+.fill{
+height:100%;
+background:linear-gradient(to right,#00bfff,#ff003c);
+animation:load 2s;
+}
+
+@keyframes load{
+from{width:0;}
+}
+
+/* Footer */
+
+footer{
+padding:30px;
+text-align:center;
+background:#000;
+margin-top:60px;
+}
+
+/* Hero Silhouette */
+
+.heroShadow{
+position:fixed;
+top:70px;
+left:-200px;
+font-size:70px;
+animation:swing 18s linear infinite;
+opacity:.8;
+}
+
+@keyframes swing{
+
+0%{
+left:-200px;
+transform:rotate(-35deg);
+}
+
+50%{
+top:140px;
+transform:rotate(25deg);
+}
+
+100%{
+left:120%;
+transform:rotate(-35deg);
+}
+
+}
+
+.clock{
+font-size:25px;
+margin-top:25px;
+color:#00bfff;
+}
+
+.music{
+position:fixed;
+bottom:20px;
+right:20px;
+padding:12px 18px;
+border:none;
+border-radius:50px;
+background:#0077ff;
+color:white;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+<body>
+
+<!-- Decorative superhero-inspired silhouette -->
+<div class="heroShadow">🦸</div>
+
+<!-- Decorative web -->
+<svg class="web left" viewBox="0 0 300 300">
+<path d="M0 0L300 300M150 0L150 300M0 150L300 150M0 75L300 225M75 0L225 300" stroke="white" opacity=".4"/>
+</svg>
+
+<svg class="web right" viewBox="0 0 300 300">
+<path d="M0 0L300 300M150 0L150 300M0 150L300 150M0 75L300 225M75 0L225 300" stroke="white" opacity=".4"/>
+</svg>
+
+<section class="hero">
+
+<div class="photo"></div>
+
+<h1>Abdurra'uf Al Maidani</h1>
+
+<h2>Programmer • Gamer • Tech Enthusiast</h2>
+
+<p>
+Halo! Saya Dani. Saya suka coding, bermain game, mempelajari teknologi baru, menyukai Kamen Rider, bela diri, dan kucing. Selamat datang di website pribadi saya!
+</p>
+
+<div class="clock" id="clock"></div>
+
+<a href="https://instagram.com/al_mai_dani" target="_blank" class="btn">
+📷 @al_mai_dani
+</a>
+
+</section>
+
+<section class="section">
+
+<h1 class="title">Tentang Saya</h1>
+
+<div class="cards">
+
+<div class="card">
+<h2>👤 Profil</h2>
+<p>
+Nama saya Abdurra'uf Al Maidani, biasa dipanggil Dani.
+</p>
+</div>
+
+<div class="card">
+<h2>🎮 Hobi</h2>
+<p>
+Game, Coding, Kamen Rider, Bela Diri, Kucing.
+</p>
+</div>
+
+<div class="card">
+<h2>🎯 Tujuan</h2>
+<p>
+Menjadi programmer profesional dan terus mengembangkan kemampuan.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h1 class="title">Skill</h1>
+
+<div class="skill">
+HTML
+<div class="bar">
+<div class="fill" style="width:90%"></div>
+</div>
+</div>
+
+<div class="skill">
+CSS
+<div class="bar">
+<div class="fill" style="width:85%"></div>
+</div>
+</div>
+
+<div class="skill">
+JavaScript
+<div class="bar">
+<div class="fill" style="width:75%"></div>
+</div>
+</div>
+
+<div class="skill">
+Programming
+<div class="bar">
+<div class="fill" style="width:80%"></div>
+</div>
+</div>
+
+</section>
+
+<footer>
+
+<h2>Follow Me</h2>
+
+<p>Instagram : @al_mai_dani</p>
+
+<p style="margin-top:10px;">
+© 2026 Dani | Premium Personal Website
+</p>
+
+</footer>
+
+<audio id="bgm" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music" onclick="playMusic()">
+🎵
+</button>
+
+<script>
+
+function playMusic(){
+document.getElementById("bgm").play(https://open.spotify.com/intl-id/track/5rhwXZP0luMucnEPnYJpbI?si=1e0ba9ae12ee4179);
+}
+
+function clock(){
+
+let d=new Date();
+
+document.getElementById("clock").innerHTML=
+d.toLocaleTimeString();
+
+}
+
+setInterval(clock,1000);
+
+clock();
+
+// Stars
+for(let i=0;i<120;i++){
+
+let s=document.createElement("div");
+
+s.className="star";
+
+s.style.left=Math.random()*100+"vw";
+
+s.style.top=Math.random()*100+"vh";
+
+s.style.animationDelay=Math.random()*3+"s";
+
+document.body.appendChild(s);
+
+}
+
+</script>
+
+</body>
+</html>
